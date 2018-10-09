@@ -10,6 +10,7 @@ import br.com.wentzel.persistencia.main.IDAO;
 import br.com.wentzel.persistencia.main.PDAO;
 import br.com.wentzel.persistencia.main.PObjectDAO;
 import java.util.ArrayList;
+import net.sf.dynamicreports.report.datasource.DRDataSource;
 
 /**
  *
@@ -41,6 +42,46 @@ public class ProdutoDao extends PDAO implements IDAO {
         }
 
         return object;
+
+    }
+    
+    public DRDataSource getDataSource(PObjectDAO obj) {
+
+        if (obj instanceof Produto) {
+
+            ArrayList<Produto> values = select(obj);
+
+            DRDataSource dataSource = new DRDataSource(
+                    "cod",
+                    "descricao",
+                    "um",
+                    "ean",
+                    "valor"                    
+            );
+
+            if (values != null) {
+
+                for (int i = 0; i < values.size(); i++) {
+
+                    dataSource.add(
+                            values.get(i).getId_produto(),
+                            values.get(i).getDescricao(),
+                            values.get(i).getUnidade(),
+                            values.get(i).getEan(),
+                            values.get(i).getValor()
+                    );
+
+                }
+
+                return dataSource;
+
+            } else {
+                return null;
+            }
+
+        } else {
+            return null;
+        }
 
     }
 
