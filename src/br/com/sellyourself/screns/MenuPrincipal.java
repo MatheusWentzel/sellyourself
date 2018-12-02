@@ -8,7 +8,6 @@ package br.com.sellyourself.screns;
 import br.com.sellyourself.dao.GrupoProdutoDao;
 import br.com.sellyourself.entities.GrupoProduto;
 import br.com.sellyourself.reports.RepGrupoProduto;
-import static java.lang.System.out;
 import javax.swing.JDesktopPane;
 import net.sf.dynamicreports.report.datasource.DRDataSource;
 
@@ -21,6 +20,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
     //Cadastros
     FGrupoProduto c1;
     FProduto c2;
+    FArmazem c3;
+    FFormaPagamento c4;
+    FCliente c5;
 
     /**
      * Creates new form MenuPrincipal
@@ -45,6 +47,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMenu3 = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem4 = new javax.swing.JMenuItem();
+        jMenuItem5 = new javax.swing.JMenuItem();
+        jMenuItem6 = new javax.swing.JMenuItem();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
 
@@ -87,6 +92,30 @@ public class MenuPrincipal extends javax.swing.JFrame {
             }
         });
         jMenu3.add(jMenuItem1);
+
+        jMenuItem4.setText("Armazem");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jMenuItem4);
+
+        jMenuItem5.setText("Forma Pagamento");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jMenuItem5);
+
+        jMenuItem6.setText("Cliente");
+        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem6ActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jMenuItem6);
 
         jMenuBar1.add(jMenu3);
 
@@ -147,6 +176,27 @@ public class MenuPrincipal extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        c3 = new FArmazem();
+        jdpMenu.add(c3);
+        c3.setVisible(true);
+        c3.setPosicao();
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
+
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+        c4 = new FFormaPagamento();
+        jdpMenu.add(c4);
+        c4.setVisible(true);
+        c4.setPosicao();
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
+
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+        c5 = new FCliente();
+        jdpMenu.add(c5);
+        c5.setVisible(true);
+        c5.setPosicao();
+    }//GEN-LAST:event_jMenuItem6ActionPerformed
+
     public JDesktopPane getJdpMenu() {
         return jdpMenu;
     }
@@ -198,6 +248,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JDesktopPane jdpMenu;
     // End of variables declaration//GEN-END:variables

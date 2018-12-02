@@ -5,9 +5,9 @@
  */
 package br.com.sellyourself.controls;
 
-import br.com.sellyourself.dao.GrupoProdutoDao;
-import br.com.sellyourself.entities.GrupoProduto;
-import br.com.sellyourself.screns.FGrupoProduto;
+import br.com.sellyourself.dao.ArmazemDao;
+import br.com.sellyourself.entities.Armazem;
+import br.com.sellyourself.screns.FArmazem;
 import br.com.wentzel.controller.IControl;
 import br.com.wentzel.controller.PControl;
 import br.com.wentzel.persistencia.main.UtilDao;
@@ -20,18 +20,18 @@ import javax.swing.JOptionPane;
  * @author wentzelmatheus
  * 
  */
-public class CadGrupoProduto extends PControl implements IControl {
+public class CadArmazem extends PControl implements IControl {
  
-    public CadGrupoProduto(FGrupoProduto view, GrupoProdutoDao dao, GrupoProduto object, ArrayList<GrupoProduto> objects) {
+    public CadArmazem(FArmazem view, ArmazemDao dao, Armazem object, ArrayList<Armazem> objects) {
         super(view, dao, object, objects);
     }
 
     @Override
     public boolean validView() {
 
-        if (view instanceof FGrupoProduto) {
+        if (view instanceof FArmazem) {
 
-            FGrupoProduto cc = (FGrupoProduto) view;
+            FArmazem cc = (FArmazem) view;
 
             //Nome
             if (!UtilValid.validJTextField(cc.getDescricao())) {
@@ -43,6 +43,7 @@ public class CadGrupoProduto extends PControl implements IControl {
                 );
                 return false;
             }
+            
         }
 
         return true;
@@ -52,17 +53,17 @@ public class CadGrupoProduto extends PControl implements IControl {
     @Override
     public void cleanView() {
 
-        if (view instanceof FGrupoProduto) {
+        if (view instanceof FArmazem) {
 
-            FGrupoProduto cad = (FGrupoProduto) view;
-
+            FArmazem cad = (FArmazem) view;
+            
             cad.getDescricao().setText("");
 
-            if (object instanceof GrupoProduto) {
+            if (object instanceof Armazem) {
 
-                GrupoProduto tp = (GrupoProduto) object;
+                Armazem tp = (Armazem) object;
 
-                cad.getId_grupo().setText(UtilDao.selectProxId(object.getTABLE(), object.getPRIMARYKEY())+"");
+                cad.getId_armazem().setText(UtilDao.selectProxId(object.getTABLE(), object.getPRIMARYKEY())+"");                
 
             }
 

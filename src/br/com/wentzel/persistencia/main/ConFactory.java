@@ -40,7 +40,7 @@ public class ConFactory {
 
             Connection connection;
 
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
             connection = DriverManager.getConnection(url, login, senha);
 
             return connection;
